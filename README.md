@@ -1,4 +1,4 @@
-ember-cli-es6-promise-polyfill
+ember-cli-promise-polyfill
 ==============================================================================
 
 [Short description of the addon.]
@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-cli-es6-promise-polyfill
+ember install ember-cli-promise-polyfill
 ```
 
 
@@ -23,7 +23,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-cli-es6-promise-polyfill`
+* `cd ember-cli-promise-polyfill`
 * `npm install`
 
 ### Linting
