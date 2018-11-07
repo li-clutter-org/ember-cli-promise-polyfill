@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-promise-polyfill",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Ember addon polyfill for ES6-style Promises",
   "keywords": [
     "ember-addon",
