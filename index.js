@@ -5,6 +5,7 @@ const VersionChecker = require('ember-cli-version-checker');
 
 const packageName = require('./package').name;
 
+
 module.exports = {
   name: packageName,
 
@@ -34,8 +35,28 @@ Please, uninstall the "${packageName}" addon. Apps using previous Ember versions
 
   included(app) {
     this._super.included.apply(this, arguments);
+    this._ensureThisImport();
+
     if (this.shouldImportPolyfill()) {
-      app.import('node_modules/es6-promise/dist/es6-promise.js', {using: [{ transformation: 'cjs', as: 'es6-promise' }]});
+      this.import('node_modules/es6-promise/dist/es6-promise.js', {using: [{ transformation: 'cjs', as: 'es6-promise' }]});
+    }
+  },
+
+  _ensureThisImport() {
+    if (!this.import) {
+      this._findHost = function findHostShim() {
+        var current = this;
+        var app;
+        do {
+          app = current.app || app;
+        } while (current.parent.parent && (current = current.parent));
+        return app;
+      };
+      this.import = function importShim(asset, options) {
+        var app = this._findHost();
+        app.import(asset, options);
+      };
     }
   }
+
 };
