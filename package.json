@@ -7,7 +7,7 @@
     "es6-promise",
     "polyfill"
   ],
-  "repository": "",
+  "repository": "https://github.com/loadimpact/ember-cli-promise-polyfill",
   "license": "MIT",
   "author": "",
   "directories": {
