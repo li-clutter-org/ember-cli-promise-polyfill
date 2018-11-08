@@ -14,7 +14,7 @@ module.exports = {
     const checker = new VersionChecker(this);
     const ember = checker.forEmber();
 
-    const expectedVersion = '4.4.0';
+    const expectedVersion = '3.4.0';
 
     if (ember.lt(expectedVersion)) {
       const error = `
