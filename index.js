@@ -2,14 +2,11 @@
 const path = require('path');
 const caniuse = require('caniuse-api');
 const VersionChecker = require('ember-cli-version-checker');
-
 const packageName = require('./package').name;
 
 
 module.exports = {
   name: packageName,
-
-  importTransforms: require('ember-cli-cjs-transform').importTransforms,
 
   init() {
     this._super.init.apply(this, arguments);
@@ -38,7 +35,7 @@ Please, uninstall the "${packageName}" addon. Apps using previous Ember versions
     this._ensureThisImport();
 
     if (this.shouldImportPolyfill()) {
-      this.import('node_modules/es6-promise/dist/es6-promise.js', {using: [{ transformation: 'cjs', as: 'es6-promise' }]});
+      this.import('node_modules/es6-promise/dist/es6-promise.auto.js');
     }
   },
 
