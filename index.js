@@ -14,12 +14,13 @@ module.exports = {
     const checker = new VersionChecker(this);
     const ember = checker.forEmber();
 
-    const expectedVersion = '3.4.0';
+    const expectedVersion = '4.4.0';
 
     if (ember.lt(expectedVersion)) {
       const error = `
 You must have Ember ${expectedVersion} or above to use "${packageName}".
-Please, uninstall the "${packageName}" addon. Apps using previous Ember versions should continue using "RSVP.Promise" instead of "Native Promises".`;
+Please, remove "${packageName}" from your "package.json".
+Apps using previous Ember versions should continue using "RSVP.Promise" instead of "Native Promise".`;
 
       throw new Error(error);
     }
